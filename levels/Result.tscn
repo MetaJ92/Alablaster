@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets_test/material/Dom Casual Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://levels/scripts/Result.gd" type="Script" id=2]
+[ext_resource path="res://levels/scripts/RecordTimeLabel.gd" type="Script" id=3]
+[ext_resource path="res://levels/scripts/CurrentTimeLabel.gd" type="Script" id=4]
+[ext_resource path="res://Music/VictoryTheme[Alablaster].wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 33
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 38
+font_data = ExtResource( 1 )
+
+[node name="Result" type="Control"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="ResultColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.207843, 0.2, 0.2, 0.705882 )
+
+[node name="ResultCenterContainer" type="CenterContainer" parent="."]
+margin_left = 250.0
+margin_top = 60.0
+margin_right = 550.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 300, 300 )
+
+[node name="ResultVBoxContainer" type="VBoxContainer" parent="ResultCenterContainer"]
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+custom_constants/separation = 10
+
+[node name="message" type="Label" parent="ResultCenterContainer/ResultVBoxContainer"]
+margin_right = 300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_colors/font_color = Color( 0.937255, 0.945098, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "GOAL!!!"
+align = 1
+
+[node name="bestTime" type="Label" parent="ResultCenterContainer/ResultVBoxContainer"]
+margin_top = 60.0
+margin_right = 300.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 1 )
+text = "Best Time:"
+align = 1
+
+[node name="currentTime" type="Label" parent="ResultCenterContainer/ResultVBoxContainer"]
+margin_top = 120.0
+margin_right = 300.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 1 )
+text = "Current Time:"
+align = 1
+valign = 1
+
+[node name="Replay" type="Button" parent="ResultCenterContainer/ResultVBoxContainer"]
+margin_top = 180.0
+margin_right = 300.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "Replay"
+
+[node name="Menu" type="Button" parent="ResultCenterContainer/ResultVBoxContainer"]
+margin_top = 240.0
+margin_right = 300.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "Menu"
+
+[node name="TimesCenterContainer" type="CenterContainer" parent="."]
+margin_left = 560.0
+margin_top = 125.0
+margin_right = 750.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 200, 150 )
+
+[node name="TimesVBoxContainer" type="VBoxContainer" parent="TimesCenterContainer"]
+margin_right = 200.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 200, 150 )
+custom_constants/separation = 10
+
+[node name="recTime" type="Label" parent="TimesCenterContainer/TimesVBoxContainer"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+custom_colors/font_color = Color( 0.0784314, 1, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Record"
+script = ExtResource( 3 )
+
+[node name="newTime" type="Label" parent="TimesCenterContainer/TimesVBoxContainer"]
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 200, 50 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Time"
+script = ExtResource( 4 )
+
+[connection signal="recentTime" from="." to="TimesCenterContainer/TimesVBoxContainer/newTime" method="_on_Result_recentTime"]
+[connection signal="recordTime" from="." to="TimesCenterContainer/TimesVBoxContainer/recTime" method="_on_Result_recordTime"]
+[connection signal="pressed" from="ResultCenterContainer/ResultVBoxContainer/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="ResultCenterContainer/ResultVBoxContainer/Menu" to="." method="_on_Menu_pressed"]

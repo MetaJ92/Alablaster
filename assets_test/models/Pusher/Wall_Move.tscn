@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 125, 10, 5 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 62.5, 5, 2.5 )
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.000237361, 0, -9.09495e-13, 0, 0, 0, 0, 0, 0, 0, 0, 56 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Animation" id=2]
+length = 12.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path/PathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Wall_Process"
+length = 12.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path/PathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+
+[node name="Wall" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000237361, 0, -9.09495e-13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000237361, 0, -9.09495e-13 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+shape = SubResource( 5 )
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000237361, 0, -9.09495e-13 )
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Path/PathFollow"]
+remote_path = NodePath("../../../KinematicBody")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Wall_Process"
+playback_process_mode = 0
+anims/RESET = SubResource( 2 )
+anims/Wall_Process = SubResource( 3 )
