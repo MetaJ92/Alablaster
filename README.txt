@@ -7,5 +7,6 @@ Alablaster is a project made in the Godot game engine which uses the programming
 In this game, you control a rolling ball that moves and hops around levels to collect 5 gems. Collect all 5 gems, reach the goal of the level, and try to beat your best times!
 You will be bouncing across 4 distinct levels each with unique textures and music.	
 
-Have a blast!
+Play the game here: metaj92.itch.io/alablaster
 
+Have a blast!
