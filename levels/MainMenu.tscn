@@ -243,7 +243,7 @@ rect_min_size = Vector2( 150, 100 )
 margin_right = 221.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Credits: Jake J, Amanda N, Hailey G"
+text = "Credits: MetaJ, Amanda N, Hailey G"
 
 [connection signal="pressed" from="BtnCenterContainer/BtnVBoxContainer/Button01" to="." method="_on_Button01_pressed"]
 [connection signal="pressed" from="BtnCenterContainer/BtnVBoxContainer/Button02" to="." method="_on_Button02_pressed"]
