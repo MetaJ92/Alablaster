@@ -1,21 +1,31 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets_test/material/Dom Casual Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://levels/scripts/Result.gd" type="Script" id=2]
 [ext_resource path="res://levels/scripts/RecordTimeLabel.gd" type="Script" id=3]
 [ext_resource path="res://levels/scripts/CurrentTimeLabel.gd" type="Script" id=4]
 [ext_resource path="res://Music/VictoryTheme[Alablaster].wav" type="AudioStream" id=5]
+[ext_resource path="res://assets_test/styles/buttonNormal.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets_test/styles/buttonPressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets_test/styles/buttonFocus.tres" type="StyleBox" id=8]
+[ext_resource path="res://levels/scripts/Button01.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
+outline_size = 3
+outline_color = Color( 0.00784314, 0.168627, 0.419608, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 33
+size = 37
+outline_size = 3
+outline_color = Color( 0.00784314, 0.168627, 0.419608, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 38
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [node name="Result" type="Control"]
@@ -42,7 +52,7 @@ rect_min_size = Vector2( 300, 300 )
 
 [node name="ResultVBoxContainer" type="VBoxContainer" parent="ResultCenterContainer"]
 margin_right = 300.0
-margin_bottom = 300.0
+margin_bottom = 308.0
 rect_min_size = Vector2( 300, 300 )
 custom_constants/separation = 10
 
@@ -77,17 +87,34 @@ valign = 1
 [node name="Replay" type="Button" parent="ResultCenterContainer/ResultVBoxContainer"]
 margin_top = 180.0
 margin_right = 300.0
-margin_bottom = 230.0
+margin_bottom = 239.0
 rect_min_size = Vector2( 50, 50 )
+custom_colors/font_color_focus = Color( 0.215686, 0.909804, 0.0470588, 1 )
+custom_colors/font_color = Color( 0.905882, 0.878431, 0, 1 )
+custom_colors/font_color_hover = Color( 0.215686, 0.909804, 0.0470588, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.439216, 0.0862745, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
 text = "Replay"
+script = ExtResource( 9 )
 
 [node name="Menu" type="Button" parent="ResultCenterContainer/ResultVBoxContainer"]
-margin_top = 240.0
+margin_top = 249.0
 margin_right = 300.0
-margin_bottom = 290.0
+margin_bottom = 308.0
 rect_min_size = Vector2( 50, 50 )
+custom_colors/font_color_focus = Color( 0.215686, 0.909804, 0.0470588, 1 )
+custom_colors/font_color = Color( 0.905882, 0.878431, 0, 1 )
+custom_colors/font_color_hover = Color( 0.215686, 0.909804, 0.0470588, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.439216, 0.0862745, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
 text = "Menu"
 
 [node name="TimesCenterContainer" type="CenterContainer" parent="."]

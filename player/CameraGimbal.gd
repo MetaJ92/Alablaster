@@ -16,21 +16,22 @@ export (float) var min_zoom = 0.4
 export (float, 0.05, 1.0) var zoom_speed = 0.09
 
 var zoom = 1.5
+var rot_interval = 2
 
 func get_input_keyboard(delta):
 	# Rotate outer gimbal around y axis
 	var y_rotation = 0
 	if Input.is_action_pressed("cam_right"):
-		y_rotation += -1
+		y_rotation += -rot_interval
 	if Input.is_action_pressed("cam_left"):
-		y_rotation += 1
+		y_rotation += rot_interval
 	rotate_object_local(Vector3.UP, y_rotation * rotation_speed * delta)
 	# Rotate inner gimbal around local x axis
 	var x_rotation = 0
 	if Input.is_action_pressed("cam_up"):
-		x_rotation += 1
+		x_rotation += rot_interval
 	if Input.is_action_pressed("cam_down"):
-		x_rotation += -1
+		x_rotation += -rot_interval
 	x_rotation = -x_rotation if invert_y else x_rotation
 	$InnerGimbal.rotate_object_local(Vector3.RIGHT, x_rotation * rotation_speed * delta)
 

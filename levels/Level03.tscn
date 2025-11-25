@@ -34,14 +34,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154.075, -3.22067, -6.46132 )
 [node name="ZMovingPlatform2" parent="Moving_Plats" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.592, -3.39374, -6.06642 )
 
-[node name="KinematicBody" parent="Moving_Plats/ZMovingPlatform2" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207, 0, -0.00237274 )
-
 [node name="YMovingPlatform2" parent="Moving_Plats" index="2"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -165.095, -6.59661, -17.4658 )
 
 [node name="KinematicBody" parent="Moving_Plats/YMovingPlatform2" index="0"]
-transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 11.0902, 0, -10.7733 )
+transform = Transform( 1, 0.000158324, -1.04442e-06, -0.000158324, 1, -0.00057668, 9.53119e-07, 0.00057668, 1, 11.0902, 0, -10.7733 )
+
+[node name="PathFollow" parent="Moving_Plats/YMovingPlatform2/Path" index="0"]
+transform = Transform( 1, 0.000158324, -1.04442e-06, -0.000158324, 1, -0.00057668, 9.53119e-07, 0.00057668, 1, 0.0382376, 0, 0.129402 )
 
 [node name="CollisionShape" parent="DeathZone" index="0"]
 transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, -40.0961, 0 )

@@ -69,6 +69,9 @@ transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4
 [node name="KinematicBody" parent="Moving_Plats/ZMovingPlatform1" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0.00012207, 0, -0.00237274 )
 
+[node name="MeshInstance" parent="Moving_Plats/ZMovingPlatform1/KinematicBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, 0 )
+
 [node name="AnimationPlayer" parent="Moving_Plats/ZMovingPlatform1" index="2"]
 playback_speed = 1.0
 
@@ -93,7 +96,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207, 0, -0.00237274 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.5, 8, -8.223 )
 
 [node name="KinematicBody" parent="Moving_Plats/YMovingPlatform2" index="0"]
-transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 11.0902, 0, -10.7733 )
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 11.1338, 22.7856, -10.7585 )
+
+[node name="PathFollow" parent="Moving_Plats/YMovingPlatform2/Path" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0817719, 22.7856, 0.144234 )
+offset = 22.7626
 
 [node name="Wall" parent="Moving_Plats" index="5" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.923, 4, -57.945 )

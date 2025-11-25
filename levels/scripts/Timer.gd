@@ -5,9 +5,13 @@ var timer_on = false
 var time_passed
 
 signal timeResult
+#set_text("FPS " + String(Engine.get_frames_per_second()))
+
+func _ready():
+	add_color_override("font_color", Color(1, 1, 0, 1))
 
 func _process(delta):
-	add_color_override("font_color", Color(1, 1, 0, 1))
+	#add_color_override("font_color", Color(1, 1, 0, 1))
 	if(timer_on):
 		time += delta
 	
@@ -17,6 +21,7 @@ func _process(delta):
 	
 	time_passed = "%02d:%02d:%03d" % [mins,secs,mils]
 	text = "Time: "+time_passed
+	#set_text("FPS " + String(Engine.get_frames_per_second()))
 
 #This starts the timer after the 3 sec countdown
 func _on_startTime():

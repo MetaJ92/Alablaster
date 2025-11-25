@@ -1,5 +1,5 @@
 extends Area
-
+#Shader credit to: https://godotshaders.com/shader/collectable-item-shining-highlight/
 signal gemCollected
 signal gemCount
 

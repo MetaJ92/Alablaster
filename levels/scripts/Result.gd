@@ -11,6 +11,7 @@ func set_is_paused(value):
 	get_tree().paused = is_paused
 	visible = is_paused
 	$AudioStreamPlayer.play()
+	$ResultCenterContainer/ResultVBoxContainer/Replay.grab_focus()
 
 func _on_Replay_pressed():
 	self.is_paused = false
